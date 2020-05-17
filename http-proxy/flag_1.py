@@ -8,6 +8,9 @@ SECRET = random.randint(1000, 9999)
 with open('flag_1.py') as f:
   SOURCE = f.read()
 
+def get_flag_1():
+  return FLAG
+
 def flag_1_route(app):
 
   @app.route('/secret-flag-1')
