@@ -21,7 +21,7 @@ def secret():
   if secret == "???":
     return "Cold."
 
-  if secret != SECRET:
+  if secret != str(SECRET):
     return "Hot."
 
   return f"Nice Job! Flag is {FLAG}"
