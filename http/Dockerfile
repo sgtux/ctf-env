@@ -1,5 +1,5 @@
 FROM alpine:latest
-RUN mkdir /app && apk add --update python3 && pip3 install flask
+RUN mkdir /app && apk add --update python3 py3-pip && pip3 install flask
 WORKDIR /app
 COPY app/* /app/
 ENV PORT 80

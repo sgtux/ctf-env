@@ -26,7 +26,7 @@ def index():
         <h1>CTF Proxy HTTP!</h1>
         %s
         </br></br>
-        <span>Post flags to /send-flag.</span>
+        <span>Post your found flags to /send-flag.</span>
       </body>
     </html>
     """ % solved)
@@ -35,8 +35,10 @@ def index():
 def send_flag():
   id = request.form.get("id", "")
   flag = request.form.get("flag", "")
+
   if id == "" or flag == "":
     return "Invalid id or flag parameters"
+
   if id == "1":
     if flag == get_flag_1():
       solved_flags.append(id)

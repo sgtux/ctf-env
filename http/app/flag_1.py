@@ -26,7 +26,7 @@ def flag_1_route(app):
     if secret != str(SECRET):
       return "Hot."
 
-    return f"Nice Job! Flag is {FLAG}"
+    return f"Nice Job! The flag is {FLAG}.\n"
 
   @app.route('/flag-1')
   def flag_1():
@@ -34,12 +34,7 @@ def flag_1_route(app):
       """
       <html>
         <body style="background-color: #000;color: #0F0">
-          <h1>URL proxy with language preference!</h1>
-          <form action="/fetch-flag-1" method="POST">
-            <p>URL: <input name="url" value="https://www.python.org/"></p>
-            <p>Language code: <input name="lang" value="en-US"></p>
-            <p><input type="submit"></p>
-          </form>
+          <h2>Use this http proxy to capture the flag!</h2>
           <pre style="font-size: 14px">
 Source Code:
 {{ src }}
