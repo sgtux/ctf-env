@@ -5,7 +5,7 @@ import socket, os, random, string
 FLAG = ''.join(random.choice(string.ascii_letters) for i in range(30))
 SECRET = random.randint(1000, 9999)
 
-with open('flag_1.py') as f:
+with open('flag-1/flag_1.py') as f:
   SOURCE = f.read()
 
 def get_flag_1():
@@ -14,7 +14,7 @@ def get_flag_1():
 def flag_1_route(app):
 
   @app.route('/secret-flag-1')
-  def secret():
+  def secret_flag_1():
     if request.remote_addr != "127.0.0.1":
       return "Access denied!"
 
@@ -30,18 +30,9 @@ def flag_1_route(app):
 
   @app.route('/flag-1')
   def flag_1():
-    return render_template_string(
-      """
-      <html>
-        <body style="background-color: #000;color: #0F0">
-          <h2>Use this http proxy to capture the flag!</h2>
-          <pre style="font-size: 14px">
-Source Code:
-{{ src }}
-          </pre>
-        </body>
-      </html>
-      """, src=SOURCE)
+    with open('flag-1/flag-1.html') as f:
+      template = f.read()
+      return render_template_string(template, title="Flag 1", src=SOURCE)
 
   @app.route('/fetch-flag-1', methods=["POST"])
   def fetch():
